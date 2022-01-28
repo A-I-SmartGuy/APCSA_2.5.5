@@ -10,11 +10,8 @@ public class PhraseSolver
   /* your code here - attributes */
   private Player player1;
   private Player player2;
-  private Board game;
   private boolean solved;
-  private int currentPlayer;
   private Scanner input;
-  private boolean correct;
   private int total1;
   private int total2;
   private Board board;
@@ -23,19 +20,13 @@ public class PhraseSolver
   /* your code here - constructor(s) */ 
   public PhraseSolver() {
     solved = false;
-    currentPlayer = 1;
     input = new Scanner(System.in);
-    correct = true;
     player1 = new Player("1");
     player2 = new Player("2");
     total1 = 0;
     total2 = 0;
     board = new Board();
   }
-
-  /* your code here - accessor(s) */
-  
-  /* your code here - mutator(s)  */
 
   public void play()
   {
@@ -57,7 +48,7 @@ public class PhraseSolver
 
       if(board.isSolved()) {
         solved = true;
-        System.out.println("\n\n");
+        System.out.println("\n" + "Solved Phrase: " + board.getPhrase() + "\n");
         if(total1 > total2) {
           System.out.println("Congrats! You guys solved the phrase, and " + player1.getName() +" won with a " + (total1 - total2) + " point lead!    " + player1.getName() + ": " + total1 + "    " + player2.getName() + ": " + total2);
         } else if (total2 > total1) {
@@ -82,7 +73,7 @@ public class PhraseSolver
       /* your code here - determine how game ends */
       if(board.isSolved()) {
         solved = true;
-        System.out.println("\n\n");
+        System.out.println("\n" + "Solved Phrase: " + board.getPhrase() + "\n");
         if(total1 > total2) {
           System.out.println("Congrats! You guys solved the phrase, and " + player1.getName() +" won with a " + (total1 - total2) + " point lead!\n" + player1.getName() + ": " + total1 + "    " + player2.getName() + ": " + total2);
         } else if (total2 > total1) {
